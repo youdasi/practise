@@ -1,8 +1,8 @@
 package com.cd.girl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -17,6 +17,7 @@ public class GirlController {
     }
 
     @PostMapping(value = "/girls")
+    @Transactional
     public Girl girlAdd(@RequestParam("cupSize") String cupSize,
                           @RequestParam("age") Integer age) {
         Girl girl = new Girl();
